@@ -18,8 +18,8 @@
 <!-- - estilizar a pagina
 - estilizar modal de busca -->
 <!-- - persistir -->
-- footer mobile
-- documentar
+<!-- - footer mobile
+- documentar -->
 
 Especificações de funcionalidades:
 [x] O projeto possui uma única página, com a lista de favoritos e um modal para a busca de cursos;
@@ -40,7 +40,7 @@ Especificações de funcionalidades:
 
 
 Critérios de avaliação:
-[ ] Fidelidade ao layout solicitado;
+[x] Fidelidade ao layout solicitado;
 [x] Fidelidade às funcionalidades solicitadas;
 [x] HTML estruturado de forma semântica;
 [x] Clareza de nomenclatura do CSS;
@@ -50,17 +50,15 @@ Critérios de avaliação:
 
 
 Sugestões extras (não obrigatórias):
-[ ] Desenvolvimento de testes;
-[ ] Seguir algum style guide de Javascript;
-[ ] Seguir algum style guide de CSS;
-[ ] Componentização e extensibilidade dos componentes Javascript;
+[x] Seguir algum style guide de Javascript;
+[x] Seguir algum style guide de CSS;
 [x] Persistir a lista de favoritos no browser do cliente;
-[ ] Aplicar animações de transição.
+[x] Aplicar animações de transição.
 
 
 
-Bugs
+<!-- Bugs
 [ ] Ao voltar do LocalStorage, na primeira interação, a lista de favoritos (legada) é sobreescrita.
 [x] Filtro modalidade --presencial não funciona.
-[ ] Filtro de modalidade permite ser checked nas duas opcoes
+[ ] Filtro de modalidade permite ser checked nas duas opcoes -->
 
