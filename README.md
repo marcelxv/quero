@@ -8,7 +8,7 @@
 
 Como se trata de um aplicativo progressivo com Vue.js em CDN, não se faz necessário instalar nenhum pacote ou dependência. Basta rodá-lo no navegador usando um live server.
 
-Como visualizar o projeto ao vivo
+### Como visualizar o projeto ao vivo
 Basta clicar [aqui](https://marcelxv.github.io/quero)
 
 ### Como visualizar o projeto localmente
