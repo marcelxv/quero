@@ -33,6 +33,7 @@ Basta clicar [aqui](https://marcelxv.github.io/quero)
 - O usuário pode remover bolsas da lista de favoritos
 - O usuário pode filtrar bolsas de estudo favoritas por semestre
 - Caso a bolsa não esteja disponível, o botão para 'Ver Oferta' aparece desabilitado
+- Quando a bolsa não está disponível, o botão para 'Ver Oferta' some e é subistituído por um botão para 'Indisponível' e com a mensagem 'Bolsa indisponível'
 - O estado da aplicação (com dados do usuário) persiste em LocalStorage
 - A navegação pela tecla tab é feita de forma que o foco não seja perdido (acessibilidade)
 - As funções e variáveis JavaScript foram escritas em Português para facilitar a leitura e diferenciar da linguagem do backend (em inglês) / exemplo: cidade e curso ao invés de city e course
@@ -43,4 +44,4 @@ Basta clicar [aqui](https://marcelxv.github.io/quero)
 - Na falta de parametrização exata de medidas e fontes, foram adotados os padrões de tamanho e fonte do Google Fonts;
 - Na ferramenta Axe DevTools foi feita uma análise de acessibilidade certificando que todos os elementos estão acessíveis;
 - O código foi organizado de forma a facilitar a leitura e a manutenção – tabulação, espaçamento entre linhas, etc;
-- Na ausência de diretrizes de design (UI Elements) foram adotados tamanhos padrões e fontes padrões;
+- Na ausência de diretrizes de design (UI Elements) foram adotados tamanhos aproximados para margins, paddings e etc;
