@@ -4,23 +4,23 @@
 
 ## Quero Educação – Bolsas Favoritas
 
-**Aplicação superleve (menos de 200KB) desenvolvida usando HTML, CSS e Javascript (com Vue.js)**
+**Aplicação superleve (menos de 200KB) desenvolvida usando HTML, CSS e Javascript – com Vue.js para cuidar dos dados e interações do usuário**
 
 Como se trata de um aplicativo progressivo com Vue.js em CDN, não se faz necessário instalar nenhum pacote ou dependência. Basta rodá-lo no navegador usando um live server.
 
 Como visualizar o projeto ao vivo
-Basta acessar o link: [link]
+Basta clicar [aqui](https://marcelxv.github.io/quero)
 
 ### Como visualizar o projeto localmente
 1. Clone o repositório do projeto
-2. Abre em um editor de código (Vscode, Sublime, etc) 
+2. Abra em um editor de código (Vscode, Sublime, etc) 
 3. Abra o arquivo index.html em um live server de sua preferência
 
 ### Setup da aplicação:
-HTML5 - como linguagem de marcação para centralizar estilos e conteúdos dinâmicos
-CSS3 – como linguagem de estilo para definir estilos de elementos 
-Javascript – como linguagem de programação para armazenar, adicionar lógica e interação com elementos da página
-Vue.js na versão 3 - como framework para criar interfaces de usuário, interação com a API, etc
+- HTML5 - como linguagem de marcação para centralizar estilos e conteúdos dinâmicos
+- CSS3 – como linguagem de estilo para definir estilos de elementos 
+- Javascript – como linguagem de programação para armazenar, adicionar lógica e interação com elementos da página
+- Vue.js na versão 3 - como framework para criar interfaces de usuário, interação com a API, etc
 
 
 ### Detalhes sobre a aplicação:
