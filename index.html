@@ -16,7 +16,8 @@
 </head>
 <div id="app">
     <header>
-        <!-- mobile-header -->
+
+        <!-- Mobile-header -->
         <div class="mobile-header">
             <div class="aside">
                 <i class="fa-solid fa-circle-info"></i>
@@ -39,10 +40,10 @@
             <div class="right">
                 <p>Menu</p>
                 <i class="fa-solid fa-chevron-down"></i>
-        </div>
+            </div>
         </div>
 
-        <!-- desktop-header -->
+        <!-- Desktop-header -->
         <div class="header">
             <div class="left">
                 <i class="fa-solid fa-circle-info"></i>
@@ -58,7 +59,7 @@
             </div>
             <img class="logo" src="./assets/logo-querobolsa.svg" alt="logo quero bolsa" srcset="">
             <div class="right">
-                    <p>Nome Sobrenome</p>
+                <p>Nome Sobrenome</p>
                 <p><i class="fa-solid fa-circle-user"></i></p>
             </div>
         </div>
@@ -69,7 +70,6 @@
                 <li class="active">Bolsas favoritas</li>
             </ul>
         </div>
-
         <div class="breadcrumbs">
             <ul>
                 <li><a href="#">Home</a></li>
@@ -78,13 +78,14 @@
             </ul>
         </div>
     </header>
+
+    <!-- Main content -->
     <main>
         <div class="container">
             <div class="heading">
                 <h1>Bolsas Favoritas</h1>
-                <p>Adicione bolsas de cursos e faculdades do
-                    seu interesse e receba atualizações com as
-                    melhores ofertas disponíveis.</p>
+                <p>Adicione bolsas de cursos e faculdades do eu interesse e receba atualizações com as melhores ofertas
+                    disponíveis.</p>
             </div>
             <div class="favorites-filter">
                 <button @click="filtrarPorSemestre('todos')" :class="semestre === 'todos' ? 'active' : 'none' ">Todos os
@@ -94,24 +95,27 @@
                     2019</button>
                 <button value="primeiro" @click="filtrarPorSemestre('2020.1')"
                     :class="semestre === '2020.1' ? 'active' : 'none' " v-model="semestre">1 semestre de
-                    2020</button>
-
+                    2020
+                </button>
             </div>
+
+            <!-- Favorites section -->
             <section class="favorites">
-                 <!-- Adicionar bolsa envolvo pela tag button para garantir que o modal pode ser aberto utilizando o teclado -->
-                <button id="add-card-btn" @click="abreModal = true"> 
-                <div role="button" class="add-card">
-                    <div class="add-card-content">
-                        <i class="fa-solid fa-circle-plus"></i>
-                        <h2 class="title">Adicionar curso</h2>
-                        <p class="subtext">Clique para adicionar bolsas de cursos do seu interesse</p>
+
+                <!-- Adicionar bolsa envolvo pela tag button para garantir que o modal pode ser aberto utilizando o teclado -->
+                <button id="add-card-btn" @click="abreModal = true">
+                    <div role="button" class="add-card">
+                        <div class="add-card-content">
+                            <i class="fa-solid fa-circle-plus"></i>
+                            <h2 class="title">Adicionar curso</h2>
+                            <p class="subtext">Clique para adicionar bolsas de cursos do seu interesse</p>
+                        </div>
                     </div>
-                </div>
                 </button>
                 <div class="card" v-for="fav in favoritosFiltrados">
                     <div class="card-info">
-                        <img class="card-logo" :title="fav.bolsa.university.name"
-                            :src="fav.bolsa.university.logo_url" alt="">
+                        <img class="card-logo" :title="fav.bolsa.university.name" :src="fav.bolsa.university.logo_url"
+                            alt="">
                         <div class="card-sub">
                             <p class="college-name">{{fav.bolsa.university.name}}</p>
                             <p class="course-name">{{fav.bolsa.course.name}}</p>
@@ -123,27 +127,23 @@
                         </div>
                         <div class="card-sub b">
                             <span v-if="fav.bolsa.enabled">
-                            <p class="card-title">Mensalidade com o Quero Bolsa:</p>
-                            <p class="price-full">R$ {{fav.bolsa.full_price}}</p>
-                            <p class="prince-discounted">R$ {{fav.bolsa.price_with_discount}}<span> /mês</span></p>
-                        </span>
+                                <p class="card-title">Mensalidade com o Quero Bolsa:</p>
+                                <p class="price-full">R$ {{fav.bolsa.full_price}}</p>
+                                <p class="prince-discounted">R$ {{fav.bolsa.price_with_discount}}<span> /mês</span></p>
+                            </span>
                         </div>
                         <div class="warning" v-if="!fav.bolsa.enabled"><span>Bolsa indisponível.</span>
-                            Entre em contato com nosso atendimento para
-                            saber mais.</div>
+                            Entre em contato com nosso atendimento para saber mais.</div>
                         <div class="btn-row">
                             <button @click="removeFavorito(fav)">Excluir</button>
-                            <button v-if="fav.bolsa.enabled" class="acao">Ver
-                                oferta</button>
+                            <button v-if="fav.bolsa.enabled" class="acao">Ver oferta</button>
                             <button class="disabled" v-if="!fav.bolsa.enabled">Indisponível</button>
                         </div>
                     </div>
             </section>
     </main>
 
-    <!-- <div class="fecha-modal" v-if="abreModal" @click="abreModal = false">
-        <i class="fa-solid fa-times"></i>
-    </div> -->
+    <!-- Modal with query search -->
     <section id="modal" :class="abreModal ? 'overlay' : 'normal' " @click="abreModal = false"></section>
     <transition name="fade" appear>
         <section class="modal" v-if="abreModal">
@@ -183,7 +183,8 @@
                 </div>
                 <div class="lista">
                     <div class="card-modal" v-for="(bolsa, id) in resultados" :key="id">
-                        <input title="selection" name="selection" type="checkbox" :value="{bolsa, id}" v-model="selecao" />
+                        <input title="selection" name="selection" type="checkbox" :value="{bolsa, id}"
+                            v-model="selecao" />
                         <img title="card-logo" class="card-logo" :src="bolsa.university.logo_url"
                             :alt="bolsa.university.name">
                         <div class="card-info">
@@ -205,6 +206,8 @@
                 </div>
         </section>
     </transition>
+
+    <!-- Footer desktop -->
     <footer>
         <div class="first-footer">
             <div class="column">
