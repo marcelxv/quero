@@ -449,7 +449,8 @@ main {
     }
 
     .add-card {
-        margin: 1.5rem !important;
+        padding: 0;
+        min-height: 1rem !important;
     }
 
     .modal {
@@ -516,7 +517,7 @@ main {
     .favorites {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center !important;
         align-items: left;
         margin-bottom: 1rem;
         margin-top: 2rem;
