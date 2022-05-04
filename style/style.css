@@ -320,8 +320,21 @@ main {
     }
 
     .card-modal .course-name{
+        font-size: 1rem;
+    }
+
+    .course-name-small {
         font-size: 0.8rem;
     }
+
+    .card-modal p {
+            font-size: 1rem;
+        }
+
+    .card-modal .discount {
+        font-size: 1rem;
+    }
+
     .card-modal img {
         max-width: 80px;
         height: auto;
@@ -520,7 +533,17 @@ main {
         justify-content: flex-start;
 
     }
+    .card-modal .course-name{
+        font-size: 0.8rem;
+    }
 
+    .course-name-small {
+        font-size: 0.8rem;
+    }
+
+    .card-modal p {
+        font-size: 0.8rem;
+    }
     
     
 }
@@ -715,10 +738,6 @@ main {
 }
 
 
-.card-modal p {
-    font-size: 0.6rem;
-}
-
 /* .card-modal img {
     max-width: 50px;
     height: auto;
@@ -802,6 +821,14 @@ main {
     display: block;
     align-items: center;
     margin: 1rem 1rem 1rem 0;
+}
+
+.kind {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+    font-size: 0.8rem;
 }
 
 .filter label {

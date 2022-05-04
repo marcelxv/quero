@@ -169,10 +169,13 @@
                     </div>
                     <div class="filter">
                         <label for="kind">Como voce quer estudar?</label>
+                        <div class="kind">
                         <input type="checkbox" title="kind" v-model="busca.modalidade" value="Presencial"
-                            id="">Presencial
-                        <input type="checkbox" title="kind" v-model="busca.modalidade" value="EaD" id="">A
-                        distância
+                            id="">
+                            <p>Presencial</p>
+                        <input type="checkbox" title="kind" v-model="busca.modalidade" value="EaD" id="">
+                            <p>A distância</p>
+                        </div>
                     </div>
                     <div class="filter">
                         <label for="price">Até quanto pode pagar?</label>
@@ -188,12 +191,12 @@
                         <img title="card-logo" class="card-logo" :src="bolsa.university.logo_url"
                             :alt="bolsa.university.name">
                         <div class="card-info">
-                            <p class="couse-name">{{bolsa.course.name}}</p>
-                            <p>{{bolsa.course.level}}</p>
+                            <p class="course-name">{{bolsa.course.name}}</p>
+                            <p class="course-name-small">{{bolsa.course.level}}</p>
                         </div>
                         <div class="card-discount">
-                            <p>Bolsa de <span>{{bolsa.discount_percentage}}%</span></p>
-                            <p><span>R$ {{bolsa.price_with_discount}}</span>/mês</p>
+                            <p>Bolsa de <span class="discount">{{bolsa.discount_percentage}}%</span></p>
+                            <p><span class="discount">R$ {{bolsa.price_with_discount}}</span> /mês</p>
                         </div>
 
                     </div>
