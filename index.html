@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolsas Favoritas</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<div id="app">
+    <header>
+        <!-- mobile-header -->
+        <div class="mobile-header">
+            <div class="aside">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>Ajuda</p>
+            </div>
+            <span class="border"></span>
+            <div class="logo">
+                <img src="./assets/logo-querobolsa.svg" alt="logo quero bolsa" srcset="">
+            </div>
+            <span class="border"></span>
+            <div class="aside">
+                <p><i class="fa-solid fa-circle-user"></i></p>
+                <p>Conta</p>
+            </div>
+        </div>
+        <div class="subnav-mobile">
+            <div class="left">
+                <p>Minha Conta</p>
+            </div>
+            <div class="right">
+                <p>Menu</p>
+                <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        </div>
+
+        <!-- desktop-header -->
+        <div class="header">
+            <div class="left">
+                <i class="fa-solid fa-circle-info"></i>
+                <div>
+                    <p>Como Funciona</p>
+                </div>
+                <span class="pipe"></span>
+                <i class="fa-brands fa-whatsapp"></i>
+                <div>
+                    <p>0800 123 2222</p>
+                    <p><span>Envie mensagem ou ligue</span></p>
+                </div>
+            </div>
+            <img class="logo" src="./assets/logo-querobolsa.svg" alt="logo quero bolsa" srcset="">
+            <div class="right">
+                    <p>Nome Sobrenome</p>
+                <p><i class="fa-solid fa-circle-user"></i></p>
+            </div>
+        </div>
+        <div class="sub-nav">
+            <ul>
+                <li class="myaccount">Minha Conta</li>
+                <li>Pré-matriculas</li>
+                <li class="active">Bolsas favoritas</li>
+            </ul>
+        </div>
+
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Minha Conta</a></li>
+                <li><a class="atual" href="#">Bolsas Favoritas</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="heading">
+                <h1>Bolsas Favoritas</h1>
+                <p>Adicione bolsas de cursos e faculdades do
+                    seu interesse e receba atualizações com as
+                    melhores ofertas disponíveis.</p>
+            </div>
+            <div class="favorites-filter">
+                <button @click="filtrarPorSemestre('todos')" :class="semestre === 'todos' ? 'active' : 'none' ">Todos os
+                    semestres</button>
+                <button value="segundo" @click="filtrarPorSemestre('2019.2')"
+                    :class="semestre === '2019.2' ? 'active' : 'none' " v-model="semestre">2 semestre de
+                    2019</button>
+                <button value="primeiro" @click="filtrarPorSemestre('2020.1')"
+                    :class="semestre === '2020.1' ? 'active' : 'none' " v-model="semestre">1 semestre de
+                    2020</button>
+
+            </div>
+            <section class="favorites">
+                 <!-- Adicionar bolsa envolvo pela tag button para garantir que o modal pode ser aberto utilizando o teclado -->
+                <button id="add-card-btn" @click="abreModal = true"> 
+                <div role="button" class="add-card">
+                    <div class="add-card-content">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <h2 class="title">Adicionar curso</h2>
+                        <p class="subtext">Clique para adicionar bolsas de cursos do seu interesse</p>
+                    </div>
+                </div>
+                </button>
+                <div class="card" v-for="fav in favoritosFiltrados">
+                    <div class="card-info">
+                        <img class="card-logo" :title="fav.bolsa.university.name"
+                            :src="fav.bolsa.university.logo_url" alt="">
+                        <div class="card-sub">
+                            <p class="college-name">{{fav.bolsa.university.name}}</p>
+                            <p class="course-name">{{fav.bolsa.course.name}}</p>
+                            <p class="college-score">{{fav.bolsa.university.score}}</p>
+                        </div>
+                        <div class="card-sub">
+                            <p class="course-kind">{{fav.bolsa.course.kind}} • NOITE</p>
+                            <p class="start-date">Início das aulas em: {{fav.bolsa.start_date}}</p>
+                        </div>
+                        <div class="card-sub b">
+                            <span v-if="fav.bolsa.enabled">
+                            <p class="card-title">Mensalidade com o Quero Bolsa:</p>
+                            <p class="price-full">R$ {{fav.bolsa.full_price}}</p>
+                            <p class="prince-discounted">R$ {{fav.bolsa.price_with_discount}}<span> /mês</span></p>
+                        </span>
+                        </div>
+                        <div class="warning" v-if="!fav.bolsa.enabled"><span>Bolsa indisponível.</span>
+                            Entre em contato com nosso atendimento para
+                            saber mais.</div>
+                        <div class="btn-row">
+                            <button @click="removeFavorito(fav)">Excluir</button>
+                            <button v-if="fav.bolsa.enabled" class="acao">Ver
+                                oferta</button>
+                            <button class="disabled" v-if="!fav.bolsa.enabled">Indisponível</button>
+                        </div>
+                    </div>
+            </section>
+    </main>
+
+    <!-- <div class="fecha-modal" v-if="abreModal" @click="abreModal = false">
+        <i class="fa-solid fa-times"></i>
+    </div> -->
+    <section id="modal" :class="abreModal ? 'overlay' : 'normal' " @click="abreModal = false"></section>
+    <transition name="fade" appear>
+        <section class="modal" v-if="abreModal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h2>Adicionar bolsa</h2>
+                    <p class="subtext">Filtre e adiciona as bolsas de seu interesse</p>
+                </div>
+                <div class="modal-filters">
+
+                    <div class="filter">
+                        <label for="city">Selecione a cidade</label>
+                        <select name="city" title="city" list="citys" v-model="busca.cidade">
+                            <option v-for="cidade in cidadesFiltradas" :value="cidade">{{cidade}}</option>
+                            </datalist>
+                        </select>
+                    </div>
+                    <div class="filter">
+                        <label for="course">Selecione o curso</label>
+                        <select name="course" title="name" id="" v-model="busca.curso">
+                            <option v-for="bolsa in bolsas" :value="bolsa.course.name">{{bolsa.course.name}}</option>
+                        </select>
+                    </div>
+                    <div class="filter">
+                        <label for="kind">Como voce quer estudar?</label>
+                        <input type="checkbox" title="kind" v-model="busca.modalidade" value="Presencial"
+                            id="">Presencial
+                        <input type="checkbox" title="kind" v-model="busca.modalidade" value="EaD" id="">A
+                        distância
+                    </div>
+                    <div class="filter">
+                        <label for="price">Até quanto pode pagar?</label>
+                        <input title="price" v-model="busca.preço" type="range" name="range" id="" min="300" step="100"
+                            max="10000" value="10000">R$
+                        {{busca.preço}}
+                    </div>
+                </div>
+                <div class="lista">
+                    <div class="card-modal" v-for="(bolsa, id) in resultados" :key="id">
+                        <input title="selection" name="selection" type="checkbox" :value="{bolsa, id}" v-model="selecao" />
+                        <img title="card-logo" class="card-logo" :src="bolsa.university.logo_url"
+                            :alt="bolsa.university.name">
+                        <div class="card-info">
+                            <p class="couse-name">{{bolsa.course.name}}</p>
+                            <p>{{bolsa.course.level}}</p>
+                        </div>
+                        <div class="card-discount">
+                            <p>Bolsa de <span>{{bolsa.discount_percentage}}%</span></p>
+                            <p><span>R$ {{bolsa.price_with_discount}}</span>/mês</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button :disabled="!selecionado" class="btn-add" @click="favoritar"
+                        :class="selecionado ? 'acao' : 'disabled' ">Adicionar aos
+                        favoritos</button>
+                    <button @click="abreModal = false">Cancelar</button>
+                </div>
+        </section>
+    </transition>
+    <footer>
+        <div class="first-footer">
+            <div class="column">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div class="inner">
+                    <span>0800 123 2222</span>
+                    <p>Seg - Sex 8h-22h</p>
+                </div>
+            </div>
+            <div class="column">
+                <i class="fa-regular fa-comments"></i>
+                <div class="inner">
+                    <span>Chat ao vivo</span>
+                    <p>Seg - Sex 8h-22h</p>
+                </div>
+            </div>
+            <div class="column">
+                <i class="fa-regular fa-envelope"></i>
+                <div class="inner">
+                    <span>Mande um e-mail</span>
+                    <p>Respondemos rapidinho</p>
+                </div>
+            </div>
+            <div class="column">
+                <i class="fa-solid fa-circle-info"></i>
+                <div class="inner">
+                    <span>Central de ajuda</span>
+                    <p>Encontre todas as respostas</p>
+                </div>
+            </div>
+        </div>
+        <div class="second-footer">
+            <p>Feito com <i class="fa-regular fa-heart"></i> pela Quero Educação</p>
+        </div>
+    </footer>
+</div>
+</body>
+<script src="main.js"></script>
+</html>
