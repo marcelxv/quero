@@ -60,5 +60,5 @@ Sugestões extras (não obrigatórias):
 <!-- Bugs
 [ ] Ao voltar do LocalStorage, na primeira interação, a lista de favoritos (legada) é sobreescrita.
 [x] Filtro modalidade --presencial não funciona.
-[ ] Filtro de modalidade permite ser checked nas duas opcoes -->
+[x] Filtro de modalidade permite ser checked nas duas opcoes -->
 
