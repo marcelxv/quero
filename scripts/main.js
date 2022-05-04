@@ -52,7 +52,7 @@ const app = new Vue({
             });
             // retorna bolsas filtradas por cidade, curso e modalidade
             let porFiltrosUI = porOrdemAlfabetica.filter(bolsa => !bolsa.campus.city.indexOf(this.busca.cidade) &&
-                !bolsa.course.name.indexOf(this.busca.curso) && bolsa.course.kind.indexOf(this.busca.modalidade));
+                !bolsa.course.name.indexOf(this.busca.curso) && !bolsa.course.kind.indexOf(this.busca.modalidade));
 
             // retorna bolsas filtradas por preço 
             let porPreco = porFiltrosUI.filter(bolsa => bolsa.full_price < this.busca.preço);
