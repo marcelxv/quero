@@ -32,8 +32,7 @@ Basta clicar [aqui](https://marcelxv.github.io/quero)
 - O usuário pode adicionar bolsas à lista de favoritos (múltiplos cursos também podem ser selecionados e adicionados à lista de favoritos)
 - O usuário pode remover bolsas da lista de favoritos
 - O usuário pode filtrar bolsas de estudo favoritas por semestre
-- Caso a bolsa não esteja disponível, o botão para 'Ver Oferta' aparece desabilitado
-- Quando a bolsa não está disponível, o botão para 'Ver Oferta' some e é subistituído por um botão para 'Indisponível' e com a mensagem 'Bolsa indisponível'
+- Caso a bolsa não esteja disponível, o botão para 'Ver Oferta' aparece desabilitado e o texto é subistituído por 'Indisponível' com a mensagem 'Bolsa indisponível' acima do botão
 - O estado da aplicação (com dados do usuário) persiste em LocalStorage
 - A navegação pela tecla tab é feita de forma que o foco não seja perdido (acessibilidade)
 - As funções e variáveis JavaScript foram escritas em Português para facilitar a leitura e diferenciar da linguagem do backend (em inglês) / exemplo: cidade e curso ao invés de city e course
