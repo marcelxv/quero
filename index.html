@@ -113,7 +113,7 @@
                         </div>
                     </div>
                 </button>
-                <div class="card" v-for="fav in favoritosFiltrados">
+                <div class="card" v-for="fav in favoritosFiltrados" :id="fav.id" :key="fav.id">
                     <div class="card-info">
                         <img class="card-logo" :title="fav.bolsa.university.name" :src="fav.bolsa.university.logo_url"
                             alt="">
@@ -186,7 +186,7 @@
                     </div>
                 </div>
                 <div class="lista">
-                    <div class="card-modal" v-for="(bolsa, id) in resultados" :key="id">
+                    <div class="card-modal" v-for="(bolsa, id) in resultados" :key="id" :id="id">
                         <input title="selection" name="selection" type="checkbox" :value="{bolsa, id}"
                             v-model="selecao" />
                         <img title="card-logo" class="card-logo" :src="bolsa.university.logo_url"

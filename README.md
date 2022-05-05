@@ -36,6 +36,7 @@ Basta clicar [aqui](https://marcelxv.github.io/quero)
 - O estado da aplicação (com dados do usuário) persiste em LocalStorage
 - A navegação pela tecla tab é feita de forma que o foco não seja perdido (acessibilidade)
 - As funções e variáveis JavaScript foram escritas em Português para facilitar a leitura e diferenciar da linguagem do backend (em inglês) / exemplo: cidade e curso ao invés de city e course
+– Foi levado em consideração as regras ESSENTIAL do style guide do [Vue](https://v2.vuejs.org/v2/style-guide/?redirect=true)
 
 ### Detalhes sobre a entrega:
 - Modo celular começa abaixo de 1280px de largura. Sendo assim, 1280px é o tamanho mínimo para o modo desktop;
